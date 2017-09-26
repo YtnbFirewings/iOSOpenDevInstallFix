@@ -4,7 +4,7 @@ Fix iOSOpenDev installation for Xcode7.3.1 & Xcode8
 Usage :
 
 ```
-git clone https://github.com/everettjf/iOSOpenDevInstallFix.git
+git clone https://github.com/YtnbFirewings/iOSOpenDevInstallFix.git
 cd iOSOpenDevInstallFix
 sh repair.sh
 ```
