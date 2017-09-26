@@ -4,10 +4,23 @@ FrameworkLibraryPath=/Applications/Xcode.app/Contents/Developer/Platforms/iPhone
 PrivateFrameworkLibraryPath=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/PrivateFrameworks/
 
 if [ ! -d "$PrivateFrameworkLibraryPath" ] ; then
+    sudo mkdir $PrivateFrameworkLibraryPath
     sudo ln -s $FrameworkLibraryPath $PrivateFrameworkLibraryPath
 else
     echo "PrivateFrameworkLibraryPath ready"
 fi
+
+# fix simulator Privateframeworks not exist
+SimFrameworkLibraryPath=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/System/Library/Frameworks/
+SimPrivateFrameworkLibraryPath=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/System/Library/PrivateFrameworks/
+
+if [ ! -d "$SimFrameworkLibraryPath" ] ; then
+    sudo mkdir $SimPrivateFrameworkLibraryPath
+    sudo ln -s $SimFrameworkLibraryPath $SimPrivateFrameworkLibraryPath
+else
+    echo "Simulator PrivateFrameworkLibraryPath ready"
+fi
+
 
 # fix simulator files not exist
 SimulatorPath=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Xcode/Specifications/
